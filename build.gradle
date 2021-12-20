@@ -16,6 +16,7 @@ configurations {
 }
 
 repositories {
+    mavenLocal()
     maven { url 'https://repo.spring.io/release' }
     mavenCentral()
 }
@@ -34,4 +35,8 @@ test {
 bootBuildImage {
     builder = 'paketobuildpacks/builder:tiny'
     environment = ['BP_NATIVE_IMAGE': 'true']
+}
+
+processResources {
+    expand(project.properties)
 }
