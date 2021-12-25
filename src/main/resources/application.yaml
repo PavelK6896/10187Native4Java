@@ -5,3 +5,7 @@ spring:
     serialization:
       indent_output: true
 
+ast:
+  new:
+    one: 12
+    two: 43
