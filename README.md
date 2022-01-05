@@ -22,4 +22,7 @@
 
 - docker build -t three-n-3 -f three.Dockerfile .
 - docker run --name three-n-3  -p 8083:8083 -d three-n-3
+
+- docker tag three-n-3 pavelk6896/10187native4-3:latest
+- docker push pavelk6896/10187native4-3:latest
 </details>
