@@ -5,3 +5,5 @@ ast:
     one: 12001
     three: 54
 
+param:
+  l1: 500, 700

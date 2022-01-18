@@ -5,7 +5,6 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import java.util.List;
 import java.util.Map;
 import java.util.Properties;
 
@@ -16,5 +15,5 @@ import java.util.Properties;
 class ResponseInfo {
     private Map<String, String> env;
     private Properties pr;
-    private List<String> custom;
+    private String custom;
 }

@@ -14,8 +14,8 @@
 <details>
   <summary>two Dockerfile</summary>
 
-- docker build -t one-n-2 -f two.Dockerfile .
-- docker run --name n-n-2 -p 8081:8080 -d one-n-2
+- docker build -t two-n-2 -f two.Dockerfile .
+- docker run --name n-n-2 -p 8081:8080 -d two-n-2
 </details>
 <details>
   <summary>three Dockerfile</summary>

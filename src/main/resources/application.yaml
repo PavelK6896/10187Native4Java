@@ -8,4 +8,8 @@ spring:
 ast:
   new:
     one: 12
-    two: 43
+    two: ${PR_TWO:43}
+
+param:
+  l1: 1, 4, 7
+  l2: 5, 6, ${PR_L2:5}

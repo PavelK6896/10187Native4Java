@@ -6,7 +6,10 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import java.util.ArrayList;
+import java.lang.reflect.Field;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 @RestController
 @RequiredArgsConstructor
@@ -21,14 +24,22 @@ public class MainController {
     @Value("${ast.new.three:}")
     private String three;
 
+    @Value("${param.l1:}")
+    private List<String> paramList1;
+
+    @Value("${param.l2:}")
+    private List<String> paramList2;
+
     @SneakyThrows
     @GetMapping("/")
     public ResponseInfo getInfo() {
-        ArrayList<String> list = new ArrayList<>();
-        list.add(one);
-        list.add(two);
-        list.add(three);
-        return ResponseInfo.builder().env(System.getenv()).pr(System.getProperties()).custom(list).build();
+        Field[] fields = this.getClass().getDeclaredFields();
+        Map<String, Object> map = new HashMap<>();
+        for (Field f : fields) {
+            f.setAccessible(false);
+            map.put(f.getName(), f.get(this));
+        }
+        return ResponseInfo.builder().env(System.getenv()).pr(System.getProperties()).custom(map.toString()).build();
     }
 
 }
