@@ -2,8 +2,8 @@
 
 ast:
   new:
-    one: 12001
-    three: 54
+    three: ${PR_THREE:0}
+    four: ${PR_FOUR:0}
 
 param:
-  l1: 500, 700
+  l1: 500, 700, ${PR_L1_1:0}

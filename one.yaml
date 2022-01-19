@@ -1,0 +1,119 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: native-4
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: native-4
+  template:
+    metadata:
+      labels:
+        app: native-4
+    spec:
+      containers:
+        - image: three-n-3
+          name: native-4
+          imagePullPolicy: Never
+          ports:
+            - containerPort: 8080
+          env:
+            - name: ASV_TEXT_BIG_VALUE_NAME
+              valueFrom:
+                secretKeyRef:
+                  key: ASV_TEXT_BIG_VALUE_NAME
+                  name: native-4
+            - name: ast.new.one
+              valueFrom:
+                secretKeyRef:
+                  key: ast.new.one
+                  name: native-4
+            - name: PR_IN
+              value: "true"
+            - name: DB_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  key: DB_PASSWORD
+                  name: native-4
+            - name: PR_THREE
+              valueFrom:
+                secretKeyRef:
+                  key: PR_THREE
+                  name: native-4
+            - name: ast.new.two
+              valueFrom:
+                secretKeyRef:
+                  key: ast.new.two
+                  name: native-4
+            - name: param.p1
+              valueFrom:
+                secretKeyRef:
+                  key: param.p1
+                  name: native-4
+            - name: AST_NEW_TWO
+              valueFrom:
+                secretKeyRef:
+                  key: AST_NEW_TWO
+                  name: native-4
+            - name: PR_L1_1
+              valueFrom:
+                secretKeyRef:
+                  key: PR_L1_1
+                  name: native-4
+            - name: SERVER_PORT
+              valueFrom:
+                secretKeyRef:
+                  key: SERVER_PORT
+                  name: native-4
+            - name: JAVA_OPTS
+              valueFrom:
+                secretKeyRef:
+                  key: JAVA_OPTS
+                  name: native-4
+          envFrom:
+            - secretRef:
+                name: native-4
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: native-4
+spec:
+  selector:
+    app: native-4
+  type: LoadBalancer
+  ports:
+    - port: 8080
+      targetPort: 8080
+
+---
+apiVersion: v1
+kind: Secret
+type: Opaque
+metadata:
+  name: native-4
+data:
+  USER_NAME: YWRtaW4=
+  # echo -n '111' | base64    echo  'MTEx' | base64 -d
+stringData:
+  TEST: "TEST"
+  DB_PASSWORD: "1000"
+  PR_THREE: "1001"
+  PR_TWO: "12345"
+  PARAM_L2: "4,5,6"
+  PARAM_L1: "1,2,3,10"
+  ASV_TEXT_BIG_VALUE_NAME: "88"
+  ast.new.one: "8000"
+  ast.new.two: "3000"
+  AST_NEW_TWO: "4000"
+  param.p1: "90"
+  server.port: "8081"
+  SERVER_PORT: "8082"
+  JAVA_OPTS: "-Dserver.port=8080 "
+  PR_L1_1: "300"
+  PR_L2_3: "300"
+  PR_L3_2: "200"
+  PR_L3_3: "300"
+  PR_FOUR: "555"

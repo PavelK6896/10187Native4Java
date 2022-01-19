@@ -37,6 +37,7 @@ bootBuildImage {
     environment = ['BP_NATIVE_IMAGE': 'true']
 }
 
-processResources {
-    expand(project.properties)
-}
+//блокирует подстановку ${}
+//processResources {
+//    expand(project.properties)
+//}

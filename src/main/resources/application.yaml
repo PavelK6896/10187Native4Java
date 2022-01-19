@@ -3,13 +3,17 @@
 spring:
   jackson:
     serialization:
-      indent_output: true
+      indent_output: ${PR_IN:true}
 
 ast:
   new:
-    one: 12
-    two: ${PR_TWO:43}
+    one: ${ASV_TEXT_BIG_VALUE_NAME:0}
+    one2: ${ASV_TEXT_BIG_VALUE_NAME:0}
+    two: ${PR_TWO:0}
+    four: ${PR_FOUR:0}
 
 param:
+  p1: ${DB_PASSWORD:0}
   l1: 1, 4, 7
-  l2: 5, 6, ${PR_L2:5}
+  l2: 5, 6, ${PR_L2_3:5}
+  l3: 1, ${PR_L3_2:2}, ${PR_L3_3:3}
