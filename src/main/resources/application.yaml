@@ -17,3 +17,9 @@ param:
   l1: 1, 4, 7
   l2: 5, 6, ${PR_L2_3:5}
   l3: 1, ${PR_L3_2:2}, ${PR_L3_3:3}
+
+management:
+  endpoint:
+    health:
+      probes:
+        enabled: true
