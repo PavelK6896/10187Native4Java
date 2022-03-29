@@ -13,7 +13,7 @@ spec:
         app: native-4
     spec:
       containers:
-        - image: three-n-3-h
+        - image: three-n-3
           name: native-4
           imagePullPolicy: Never
           ports:
